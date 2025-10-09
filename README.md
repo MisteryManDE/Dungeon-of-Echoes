@@ -3,7 +3,7 @@
 Ein textbasiertes RPG-Browserspiel mit Dungeon-Erkundung, Kampfsystem und Minispielen.
 
 ## Version
-1.1.2
+2.0.2
 
 ## Beschreibung
 
@@ -18,11 +18,7 @@ Dungeon of Echoes ist ein textbasiertes RPG, das vollständig im Browser läuft.
 - Talentbaum für Charakterentwicklung
 - Speichern und Laden von Spielständen
 
-## Spielstart
 
-1. Öffne die `index.html` in einem modernen Webbrowser
-2. Wähle "Neues Spiel" und erstelle deinen Charakter
-3. Folge der Einführung und beginne dein Abenteuer
 
 ## Steuerung
 
@@ -106,7 +102,7 @@ Dungeon of Echoes ist ein textbasiertes RPG, das vollständig im Browser läuft.
 - Multiplayer-Funktionen
 
 ## Autor
-Dungeon of Echoes Team
+Dungeon of Echoes Team(HEHEHE (Erik))
 
 ## Lizenz
 Alle Rechte vorbehalten
