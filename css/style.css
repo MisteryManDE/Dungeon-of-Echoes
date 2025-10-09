@@ -1,0 +1,540 @@
+/* Grundlegende Stile */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #222;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Container */
+#game-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Spielbereich (linke Spalte) */
+#game-area {
+    flex: 3;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 5px;
+    margin-right: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#game-header {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+}
+
+#game-header h1 {
+    margin: 0;
+    color: #FFD700;
+    text-shadow: 0 0 5px #000;
+}
+
+#player-stats {
+    margin-top: 10px;
+    font-size: 14px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.stat {
+    margin-right: 15px;
+    margin-bottom: 5px;
+}
+
+#game-log {
+    height: 400px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #2a2a2a;
+    border-radius: 5px;
+    border: 1px solid #444;
+}
+
+.message {
+    margin-bottom: 8px;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.title {
+    color: #FFD700;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.info {
+    color: #87CEEB;
+}
+
+.success {
+    color: #90EE90;
+}
+
+.danger {
+    color: #FF6347;
+}
+
+.loot {
+    color: #DA70D6;
+}
+
+.quest {
+    color: #FFD700;
+}
+
+.npc {
+    color: #98FB98;
+    font-style: italic;
+}
+
+#action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.action-btn {
+    padding: 8px 15px;
+    background-color: #4a4a4a;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.action-btn:hover {
+    background-color: #5a5a5a;
+}
+
+.action-btn.primary {
+    background-color: #4CAF50;
+}
+
+.action-btn.primary:hover {
+    background-color: #45a049;
+}
+
+.action-btn.secondary {
+    background-color: #2196F3;
+}
+
+.action-btn.secondary:hover {
+    background-color: #0b7dda;
+}
+
+.action-btn.danger {
+    background-color: #f44336;
+}
+
+.action-btn.danger:hover {
+    background-color: #d32f2f;
+}
+
+.action-btn.npc {
+    background-color: #9c27b0;
+}
+
+.action-btn.npc:hover {
+    background-color: #7b1fa2;
+}
+
+.action-btn:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Seitenpanel (rechte Spalte) */
+#side-panel {
+    flex: 1;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#side-panel h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #FFD700;
+    font-size: 1.2em;
+    border-bottom: 1px solid #444;
+    padding-bottom: 5px;
+}
+
+#inventory-container, #equipment-container, #abilities-container {
+    margin-bottom: 20px;
+}
+
+#inventory, #equipment, #abilities {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 10px;
+}
+
+.item, .ability {
+    background-color: #444;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: relative;
+}
+
+.item:hover, .ability:hover {
+    background-color: #555;
+}
+
+.item-name, .ability-name {
+    font-size: 12px;
+    margin-top: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item-icon, .ability-icon {
+    font-size: 24px;
+}
+
+.item-count {
+    position: absolute;
+    bottom: 2px;
+    right: 5px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.item.equipped {
+    border: 2px solid #FFD700;
+}
+
+.item.usable {
+    border: 2px solid #4CAF50;
+}
+
+/* Tooltip */
+.tooltip {
+    position: absolute;
+    background-color: #222;
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 100;
+    width: 200px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip-title {
+    color: #FFD700;
+    font-weight: bold;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 3px;
+}
+
+.tooltip-description {
+    font-size: 12px;
+    color: #ccc;
+}
+
+.tooltip-stats {
+    margin-top: 5px;
+    font-size: 12px;
+    color: #87CEEB;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color: #333;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 800px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #fff;
+}
+
+/* Talentbaum */
+#talent-tree-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.talent-tree-class {
+    background-color: #2a2a2a;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.talent-tree-title {
+    color: #FFD700;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 5px;
+}
+
+.talent-tree-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+}
+
+.talent-node {
+    background-color: #444;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.talent-node:hover {
+    background-color: #555;
+}
+
+.talent-node.available {
+    border: 2px solid #4CAF50;
+}
+
+.talent-node.unavailable {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.talent-node.selected {
+    background-color: #4CAF50;
+}
+
+.talent-icon {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.talent-name {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.talent-points {
+    margin-top: 10px;
+    color: #FFD700;
+}
+
+/* Fortschrittsbalken */
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #444;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.progress-bar > div {
+    height: 100%;
+    background-color: #4CAF50;
+    transition: width 0.3s;
+}
+
+/* Kampfbereich */
+.combat-area {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.combat-enemies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.enemy-container {
+    background-color: #444;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    width: 120px;
+}
+
+.enemy-container.selected {
+    border: 2px solid #FFD700;
+}
+
+.enemy-icon {
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+.enemy-name {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.enemy-hp {
+    font-size: 12px;
+    color: #FF6347;
+}
+
+/* Werbung */
+#ad-container {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #2a2a2a;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.ad-placeholder {
+    padding: 50px 0;
+    background-color: #444;
+    color: #777;
+    font-style: italic;
+}
+
+/* Verstecke Werbung, wenn deaktiviert */
+.ads-disabled #ad-container {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #game-container {
+        flex-direction: column;
+    }
+    
+    #game-area {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    #action-buttons {
+        flex-direction: column;
+    }
+    
+    .action-btn {
+        width: 100%;
+    }
+}
+
+/* Animationen */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.fadeIn {
+    animation: fadeIn 0.5s;
+}
+
+.pulse {
+    animation: pulse 1s infinite;
+}
+
+/* Spezielle Effekte */
+.effect-poison {
+    color: #8BC34A;
+}
+
+.effect-fire {
+    color: #FF5722;
+}
+
+.effect-ice {
+    color: #03A9F4;
+}
+
+.effect-stun {
+    color: #FFEB3B;
+}
+
+/* Tavernenspiel */
+#tavern-game-container {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #333;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#player-progress, #dwarf-progress {
+    margin-bottom: 15px;
+}
+
+#player-progress > div {
+    background-color: #2196F3;
+}
+
+#dwarf-progress > div {
+    background-color: #F44336;
+}
+
+#sequence-display {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 48px;
+    font-weight: bold;
+    color: #FFD700;
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dungeon of Echoes - Version 2.0.2</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Kommentar: Werbebanner (deaktiviert) -->
+    <!--
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+     crossorigin="anonymous"></script>
+    -->
+</head>
+<body>
+    <!-- Hauptcontainer -->
+    <div id="game-container">
+        <!-- Linke Spalte (Spielbereich) -->
+        <div id="game-area">
+            <div id="game-header">
+                <h1>Dungeon of Echoes</h1>
+                <div id="player-stats"></div>
+            </div>
+            <div id="game-log"></div>
+            <div id="action-buttons"></div>
+        </div>
+
+        <!-- Rechte Spalte (Inventar, Ausrüstung, etc.) -->
+        <div id="side-panel">
+            <div id="inventory-container">
+                <h2>Inventar</h2>
+                <div id="inventory"></div>
+            </div>
+            <div id="equipment-container">
+                <h2>Ausrüstung</h2>
+                <div id="equipment"></div>
+            </div>
+            <div id="abilities-container">
+                <h2>Fähigkeiten</h2>
+                <div id="abilities"></div>
+            </div>
+
+            <!-- Werbebanner (deaktiviert) -->
+            <!--
+            <div id="ad-container">
+                <div class="ad-placeholder">Werbung</div>
+            </div>
+            -->
+        </div>
+    </div>
+
+    <!-- Talentbaum-Modal -->
+    <div id="talent-tree-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Talentbaum</h2>
+            <div id="talent-tree-container"></div>
+        </div>
+    </div>
+
+    <!-- JavaScript-Module laden -->
+    <!-- Core-Module -->
+    <script src="js/errorHandler.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/eventSystem.js"></script>
+
+    <!-- Daten-Module -->
+    <script src="js/data/items.js"></script>
+    <script src="js/data/enemies.js"></script>
+    <script src="js/data/dungeons.js"></script>
+    <script src="js/data/abilities.js"></script>
+    <script src="js/data/quests.js"></script>
+
+    <!-- Entity-Module -->
+    <script src="js/entities/player.js"></script>
+    <script src="js/entities/enemy.js"></script>
+    <script src="js/entities/item.js"></script>
+    <script src="js/entities/companion.js"></script>
+
+    <!-- UI-Module -->
+    <script src="js/ui/gameUI.js"></script>
+    <script src="js/ui/gameUIExtended.js"></script>
+    <script src="js/ui/talentTreeUI.js"></script>
+    <script src="js/ui/tavernGameUI.js"></script>
+
+    <!-- System-Module -->
+    <script src="js/systems/combat.js"></script>
+    <script src="js/systems/inventory.js"></script>
+    <script src="js/systems/quest.js"></script>
+    <script src="js/systems/saveLoad.js"></script>
+
+    <!-- Minigame-Module -->
+    <script src="js/minigames/tavernGame.js"></script>
+
+    <!-- Hauptspiel-Modul -->
+    <script src="js/gameEngine.js"></script>
+    <script src="js/gameEngine_town.js"></script>
+    <script src="js/gameEngine_exploration.js"></script>
+
+    <!-- Initialisierung -->
+    <script src="js/main.js"></script>
+</body>
+</html>
