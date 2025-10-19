@@ -1,3 +1,4 @@
+
 /**
  * Combat-System für Dungeon of Echoes
  * Verwaltet Kampfmechaniken und -abläufe
@@ -325,14 +326,33 @@ const CombatSystem = {
             
             // Statuseffekt anwenden
             if (ability.effect) {
+                let finalEffect = {...ability.effect}; // Effekt kopieren, um ihn zu modifizieren
+                
+                // Talent-Effekte prüfen
+                if (player.passiveEffects) {
+                    player.passiveEffects.forEach(talentEffect => {
+                        // Verbessertes Gift
+                        if (ability.name === 'Giftschlag' && talentEffect.description && talentEffect.description.includes('Giftschlag +2 Schaden pro Runde')) {
+                            finalEffect.value += 2;
+                        }
+                        // Eisstachel Betäubung
+                        if (ability.name === 'Eisstachel' && talentEffect.description && talentEffect.description.includes('Eisstachel hat 25% Betäubungschance')) {
+                             if (Math.random() < 0.25) {
+                                enemy.addStatusEffect({ name: "Betäubt", duration: 1, effect: "stun", value: 1 });
+                                GameUI.addMessage(`${enemy.name} wird durch den Eisstachel betäubt!`, 'info');
+                             }
+                        }
+                    });
+                }
+                
                 if (ability.type === "buff") {
                     // Buff für den Spieler
-                    player.addStatusEffect({...ability.effect});
-                    GameUI.addMessage(`Du bist jetzt ${ability.effect.name}!`, 'info');
+                    player.addStatusEffect(finalEffect);
+                    GameUI.addMessage(`Du bist jetzt ${finalEffect.name}!`, 'info');
                 } else {
                     // Debuff für den Gegner
-                    enemy.addStatusEffect({...ability.effect});
-                    GameUI.addMessage(`${enemy.name} ist jetzt ${ability.effect.name}!`, 'info');
+                    enemy.addStatusEffect(finalEffect);
+                    GameUI.addMessage(`${enemy.name} ist jetzt ${finalEffect.name}!`, 'info');
                 }
             }
         }
@@ -517,7 +537,7 @@ const CombatSystem = {
         const attack = enemy.attack();
         
         // Ausweichen prüfen
-        const dodgeChance = Utils.calculateDodgeChance(player.speed);
+        const dodgeChance = Utils.calculateDodgeChance(player.speed, player);
         if (Math.random() < dodgeChance) {
             GameUI.addMessage(`${enemy.name} greift mit ${attack.name} an, aber du weichst aus!`, 'success');
             return;

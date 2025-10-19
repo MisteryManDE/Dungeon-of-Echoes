@@ -1,3 +1,4 @@
+
 /**
  * Inventory-System für Dungeon of Echoes
  * Verwaltet das Inventar und die Ausrüstung des Spielers
@@ -589,7 +590,6 @@ const InventorySystem = {
      */
     getCraftingRecipes: function(category) {
         // Hier würden normalerweise die Rezepte aus einer Datenbank oder Konfiguration geladen
-        // Für dieses Beispiel verwenden wir Dummy-Daten
         const recipes = {
             weapon: [
                 {
@@ -600,16 +600,21 @@ const InventorySystem = {
                         { name: "Eisenerz", count: 3 },
                         { name: "Holz", count: 1 }
                     ],
-                    result: {
-                        name: "Eisenschwert",
-                        type: "weapon",
-                        properties: {
-                            description: "Ein solides Eisenschwert. Zuverlässig im Kampf.",
-                            strength: 4,
-                            price: 25,
-                            rarity: 2
-                        }
-                    }
+                    result: ItemData.getItem('iron_sword')
+                },
+                 {
+                    name: "Verzauberter Stab",
+                    description: "Ein Stab, aufgeladen mit magischer Energie.",
+                    category: "weapon",
+                    materials: [ { name: "Holz", count: 3 }, { name: "Magischer Kristall", count: 2 } ],
+                    result: ItemData.getItem('enchanted_staff')
+                },
+                {
+                    name: "Assassinenklinge",
+                    description: "Eine leichte, tödliche Klinge.",
+                    category: "weapon",
+                    materials: [ { name: "Eisenerz", count: 4 }, { name: "Leder", count: 2 } ],
+                    result: ItemData.getItem('assassins_blade')
                 }
             ],
             armor: [
@@ -620,16 +625,14 @@ const InventorySystem = {
                     materials: [
                         { name: "Leder", count: 5 }
                     ],
-                    result: {
-                        name: "Lederrüstung",
-                        type: "armor",
-                        properties: {
-                            description: "Eine einfache Rüstung aus gehärtetem Leder.",
-                            defense: 2,
-                            price: 15,
-                            rarity: 1
-                        }
-                    }
+                    result: ItemData.getItem('leather_armor')
+                },
+                 {
+                    name: "Kettenhemd",
+                    description: "Ein Hemd aus verbundenen Metallringen.",
+                    category: "armor",
+                    materials: [ { name: "Eisenerz", count: 5 } ],
+                    result: ItemData.getItem('chainmail')
                 }
             ],
             potion: [
@@ -640,18 +643,21 @@ const InventorySystem = {
                     materials: [
                         { name: "Heilkraut", count: 2 }
                     ],
-                    result: {
-                        name: "Kleiner Heiltrank",
-                        type: "consumable",
-                        properties: {
-                            description: "Ein kleiner Trank, der einige Lebenspunkte wiederherstellt.",
-                            effect: "restoreHp",
-                            value: 20,
-                            price: 10,
-                            rarity: 1,
-                            stackable: true
-                        }
-                    }
+                    result: ItemData.getItem('health_potion_small')
+                },
+                {
+                    name: "Kleiner Manatrank",
+                    description: "Stellt eine kleine Menge Mana wieder her.",
+                    category: "potion",
+                    materials: [ { name: "Heilkraut", count: 1 }, { name: "Magischer Kristall", count: 1 } ],
+                    result: ItemData.getItem('mana_potion_small')
+                },
+                {
+                    name: "Stärkeelixier",
+                    description: "Erhöht die Stärke temporär.",
+                    category: "potion",
+                    materials: [ { name: "Heilkraut", count: 3 }, { name: "Eisenerz", count: 1 } ],
+                    result: ItemData.getItem('strength_elixir')
                 }
             ]
         };

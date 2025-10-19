@@ -125,3 +125,9 @@
         11-30  | 600-5000    | 50-200 HP   | Seltene Items
         31-50  | 6000-20000  | 500-2000 HP | Epische Sets
         */
+		
+
+		
+		der spieler muss desto mehr er trinkt immer mehr vertrasgen also schneller saufen
+		gegner müssen mehr schaden machen nciht immer nur 1,auch der boss macht nur 1 schaden
+		status effecte müssen nicht "du bist gift" sonder vergiftet

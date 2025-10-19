@@ -74,11 +74,11 @@ const TavernGame = {
             lastDecayTime: 0
         };
 
-        // Zufällige Sequenz generieren
-        this.generateSequence();
-
-        // Fortschrittsbalken anzeigen
+        // Fortschrittsbalken und UI-Elemente erstellen, BEVOR die erste Taste angezeigt wird
         GameUI.showTavernGameUI();
+
+        // Zufällige Sequenz generieren und erste Taste anzeigen
+        this.generateSequence();
 
         // Tastatur-Event-Listener hinzufügen
         this.setupControls();

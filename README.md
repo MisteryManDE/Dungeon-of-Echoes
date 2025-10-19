@@ -1,9 +1,40 @@
+		Dungeon of Echoes - Update-Hinweise v2.1.4
+============================================
+
+Hallo Abenteurer,
+
+dieses Update konzentriert sich auf die Behebung von Fehlern, die Vervollständigung unfertiger Spielinhalte und eine umfassende Code-Bereinigung, um die Stabilität und zukünftige Erweiterbarkeit des Spiels zu verbessern.
+
+**Fehlerbehebungen (Bug Fixes):**
+-------------------------------
+*   **Tavernenspiel:** Ein kritischer Fehler wurde behoben, bei dem die Pfeiltasten im Trinkspiel nicht korrekt angezeigt wurden. Das Minispiel ist nun vollständig spielbar.
+*   **Kampflogik:** Berechnungen für kritische Treffer und Ausweichen wurden korrigiert, um passive Boni aus dem Talentsystem nun korrekt zu berücksichtigen.
+
+**Neue Inhalte & Features:**
+---------------------------
+*   **Talentbäume vervollständigt:** Die Platzhalter für die Schurken- und Magier-Talentbäume wurden durch einzigartige, voll funktionsfähige Talente ersetzt, die neue passive Boni und Fähigkeiten freischalten.
+*   **Handwerkssystem erweitert:** Dem Handwerkssystem wurden zahlreiche neue Rezepte für Waffen, Rüstungen und Tränke hinzugefügt, um es nützlicher und interessanter zu machen.
+
+**Verbesserungen & Code-Qualität:**
+-----------------------------------
+*   **Code-Struktur verbessert:** Redundante und ungenutzte Skript-Dateien (im ehemaligen Ordner 'js/core/') wurden entfernt und ihre Funktionalität in die Haupt-Skripte integriert. Dies reduziert Fehlerquellen und verbessert die Wartbarkeit.
+*   **Konfiguration vereinheitlicht:** Alle Spielkonfigurationen wurden in einer einzigen Datei (`js/config.js`) zusammengefasst, um Inkonsistenzen zu beseitigen. Die maximale Stufe wurde in diesem Zuge auf 30 angehoben.
+*   **Event-System verbessert:** Das System zur Event-Verwaltung wurde auf eine robustere Version aktualisiert.
+
+Viel Spaß bei euren Abenteuern in den Dungeons!
+
+
+
+
+
+
+
 # Dungeon of Echoes
 
 Ein textbasiertes RPG-Browserspiel mit Dungeon-Erkundung, Kampfsystem und Minispielen.
 
 ## Version
-2.0.2
+1.1.2
 
 ## Beschreibung
 
@@ -18,7 +49,11 @@ Dungeon of Echoes ist ein textbasiertes RPG, das vollständig im Browser läuft.
 - Talentbaum für Charakterentwicklung
 - Speichern und Laden von Spielständen
 
+## Spielstart
 
+1. Öffne die `index.html` in einem modernen Webbrowser
+2. Wähle "Neues Spiel" und erstelle deinen Charakter
+3. Folge der Einführung und beginne dein Abenteuer
 
 ## Steuerung
 
@@ -102,7 +137,10 @@ Dungeon of Echoes ist ein textbasiertes RPG, das vollständig im Browser läuft.
 - Multiplayer-Funktionen
 
 ## Autor
-Dungeon of Echoes Team(HEHEHE (Erik))
+Dungeon of Echoes Team
 
 ## Lizenz
 Alle Rechte vorbehalten
+
+
+

@@ -1,3 +1,5 @@
+
+
 /**
  * Config-Modul für Dungeon of Echoes
  * Enthält Konfigurationseinstellungen für das Spiel
@@ -13,7 +15,7 @@ const Config = {
         // Spieler
         startingLevel: 1,
         startingGold: 50,
-        maxLevel: 20,
+        maxLevel: 30,
         maxCompanions: 3,
 
         // Inventar
@@ -93,7 +95,17 @@ const Config = {
         17: 72000,
         18: 85000,
         19: 100000,
-        20: 120000
+        20: 120000,
+        21: 145000,
+        22: 175000,
+        23: 210000,
+        24: 250000,
+        25: 300000,
+        26: 360000,
+        27: 430000,
+        28: 510000,
+        29: 600000,
+        30: 700000
     },
 
     // Tavernenspiel-Einstellungen
@@ -189,6 +201,58 @@ const Config = {
             defense: 0.6,
             magic: 1.5,
             speed: 1.0
+        }
+    },
+    
+    // Erkundungseinstellungen
+    exploration: {
+        eventChance: 0.7,
+        enemyChance: 0.4,
+        itemChance: 0.2,
+        nothingChance: 0.1,
+        specialEventChance: 0.05,
+        companionFindChance: 0.02,
+        weatherChangeChance: 0.1
+    },
+    
+    // Wetter-Effekte
+    weather: {
+        clear: {
+            name: "Klar",
+            description: "Ein klarer Tag ohne besondere Effekte.",
+            effect: null
+        },
+        rainy: {
+            name: "Regnerisch",
+            description: "Der Regen erschwert die Sicht. Genauigkeit leicht reduziert.",
+            effect: {
+                type: "accuracyReduction",
+                value: 0.1
+            }
+        },
+        foggy: {
+            name: "Neblig",
+            description: "Dichter Nebel umgibt dich. Chance auf kritische Treffer erhöht.",
+            effect: {
+                type: "criticalChanceBoost",
+                value: 0.05
+            }
+        },
+        stormy: {
+            name: "Stürmisch",
+            description: "Ein heftiger Sturm tobt. Bewegungsgeschwindigkeit reduziert.",
+            effect: {
+                type: "speedReduction",
+                value: 0.15
+            }
+        },
+        sunny: {
+            name: "Sonnig",
+            description: "Die Sonne scheint hell. Regeneration leicht erhöht.",
+            effect: {
+                type: "regenerationBoost",
+                value: 1
+            }
         }
     }
 };

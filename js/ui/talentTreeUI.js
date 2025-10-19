@@ -1,3 +1,4 @@
+
 /**
  * TalentTreeUI-Modul für Dungeon of Echoes
  * Verwaltet die Benutzeroberfläche für den Talentbaum
@@ -317,8 +318,6 @@ const TalentTreeUI = {
      * @returns {Array} Array mit Talenten
      */
     getTalentsForClass: function(className) {
-        // Hier würden normalerweise die Talente aus einer Datenbank oder Konfiguration geladen
-        // Für dieses Beispiel verwenden wir Dummy-Daten
         const talents = {
             warrior: [
                 {
@@ -395,10 +394,98 @@ const TalentTreeUI = {
                 }
             ],
             rogue: [
-                // Schurken-Talente hier einfügen
+                {
+                    id: 'rogue_speed',
+                    name: 'Flinke Füße',
+                    description: 'Erhöht deine Geschwindigkeit permanent.',
+                    icon: '💨',
+                    effect: { type: 'statBoost', stat: 'speed', value: 2 }
+                },
+                {
+                    id: 'rogue_crit',
+                    name: 'Tödliche Präzision',
+                    description: 'Erhöht deine kritische Trefferchance um 5%.',
+                    icon: '🎯',
+                    effect: { type: 'passiveEffect', description: '+5% kritische Trefferchance' },
+                    requiredLevel: 2
+                },
+                {
+                    id: 'rogue_evasion',
+                    name: 'Schattenhaft',
+                    description: 'Erhöht deine Ausweichchance permanent um 5%.',
+                    icon: '👤',
+                    effect: { type: 'passiveEffect', description: '+5% Ausweichchance' },
+                    requires: ['rogue_speed'],
+                    requiredLevel: 4
+                },
+                {
+                    id: 'rogue_poison',
+                    name: 'Verbessertes Gift',
+                    description: 'Dein Giftschlag verursacht +2 Schaden pro Runde.',
+                    icon: '☠️',
+                    effect: { type: 'passiveEffect', description: 'Giftschlag +2 Schaden pro Runde' },
+                    requires: ['rogue_crit'],
+                    requiredLevel: 5
+                },
+                {
+                    id: 'rogue_smoke_bomb',
+                    name: 'Rauchbombe',
+                    description: 'Schaltet die Fähigkeit "Rauchbombe" frei, die deine Ausweichchance stark erhöht.',
+                    icon: '💣',
+                    effect: {
+                        type: 'abilityUnlock',
+                        ability: { name: 'Rauchbombe', description: 'Hüllt dich in Rauch und erhöht deine Ausweichchance für 2 Runden.', manaCost: 10, cooldown: 5, icon: '💣', type: 'buff', effect: { name: 'Schattenhaft', duration: 2, effect: 'dodgeBoost', value: 0.3 } }
+                    },
+                    requires: ['rogue_evasion'],
+                    requiredLevel: 7
+                }
             ],
             mage: [
-                // Magier-Talente hier einfügen
+                {
+                    id: 'mage_mana',
+                    name: 'Arkane Reserve',
+                    description: 'Erhöht dein maximales Mana permanent.',
+                    icon: '💧',
+                    effect: { type: 'statBoost', stat: 'maxMana', value: 20 }
+                },
+                {
+                    id: 'mage_magic',
+                    name: 'Machtvolle Magie',
+                    description: 'Erhöht deine Magie permanent.',
+                    icon: '✨',
+                    effect: { type: 'statBoost', stat: 'magic', value: 2 },
+                    requiredLevel: 2
+                },
+                {
+                    id: 'mage_fire',
+                    name: 'Intensives Feuer',
+                    description: 'Dein Feuerball verursacht +5 zusätzlichen Schaden.',
+                    icon: '🔥',
+                    effect: { type: 'passiveEffect', description: 'Feuerball +5 Schaden' },
+                    requires: ['mage_magic'],
+                    requiredLevel: 4
+                },
+                {
+                    id: 'mage_ice',
+                    name: 'Gefrierender Griff',
+                    description: 'Dein Eisstachel hat eine 25% Chance, Gegner zu betäuben.',
+                    icon: '❄️',
+                    effect: { type: 'passiveEffect', description: 'Eisstachel hat 25% Betäubungschance' },
+                    requires: ['mage_magic'],
+                    requiredLevel: 5
+                },
+                {
+                    id: 'mage_chain_lightning',
+                    name: 'Kettenblitz',
+                    description: 'Schaltet die Fähigkeit "Kettenblitz" frei, die mehrere Gegner trifft.',
+                    icon: '⚡',
+                    effect: {
+                        type: 'abilityUnlock',
+                        ability: { name: 'Kettenblitz', description: 'Ein Blitz, der auf bis zu 3 Gegner überspringt.', damage: 10, manaCost: 15, cooldown: 4, icon: '⚡', type: 'magic', aoe: true }
+                    },
+                    requires: ['mage_fire', 'mage_ice'],
+                    requiredLevel: 7
+                }
             ]
         };
         

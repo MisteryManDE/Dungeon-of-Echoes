@@ -1,3 +1,4 @@
+
 /**
  * Abilities-Datenmodul für Dungeon of Echoes
  * Enthält Definitionen für alle Fähigkeiten im Spiel
@@ -291,6 +292,15 @@ const AbilityData = {
 
         let baseDamage = ability.damage || 0;
 
+        // Talent-Effekte
+        if (player.passiveEffects) {
+            player.passiveEffects.forEach(effect => {
+                if (ability.name === 'Feuerball' && effect.description && effect.description.includes('Feuerball +5 Schaden')) {
+                    baseDamage += 5;
+                }
+            });
+        }
+
         // Schadenstyp berücksichtigen
         switch (ability.type) {
             case "physical":
@@ -306,7 +316,7 @@ const AbilityData = {
         }
 
         // Kritischer Treffer
-        const critChance = Utils.calculateCriticalChance(player.luck || 0);
+        const critChance = Utils.calculateCriticalChance(player.luck || 0, player);
         if (Math.random() < critChance + (ability.critBoost || 0)) {
             baseDamage *= Config.combat.criticalHitMultiplier;
         }
